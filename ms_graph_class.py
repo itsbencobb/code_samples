@@ -12,7 +12,7 @@ class digital_process:
         self.client_secret = 'secret'
         self.scopes = ['https://graph.microsoft.com/.default']
         self.scopes1 = ['https://graph.microsoft.com/Mail.ReadWrite']
-        self.user_id = 'digital.process@scripps.com'
+        self.user_id = 'email@email.com'
         self.endpoint = f'https://graph.microsoft.com/v1.0/users/{self.user_id}'
         
     def get_access_token(self):
@@ -39,7 +39,7 @@ class digital_process:
              return result
          
     def send_mail(self, to_user_email: str, subject: str, message: str, 
-                                cc_user_email='digital.process@scripps.com'):
+                                cc_user_email='email@email.com'):
         """
         Connects to MS Graph via client secret and token.  Gets a new token if neccessary.
         Sends mail.
@@ -163,7 +163,7 @@ class digital_process:
         Subquery that is used in:
         get_mail_attachments(), get_specific_attachment()
         """
-        #endpoint = 'https://graph.microsoft.com/v1.0/users/digital.process@scripps.com'
+        #endpoint = 'https://graph.microsoft.com/v1.0/users/email@email.com'
         try:
             response = requests.get(
                 self.endpoint + '/messages/{0}/attachments'.format(message_id),
